@@ -39,11 +39,11 @@ def load_model():
     x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.2, random_state=42) 
     # model_rf = RandomForestRegressor().fit(x_train, y_train)
     model_lr = LinearRegression().fit(x_train, y_train)
-    model_rf = GradientBoostingRegressor().fit(x_train, y_train)
-    return model_rf, model_lr, new_data
+    model_gr = GradientBoostingRegressor().fit(x_train, y_train)
+    return model_gr, model_lr, new_data
 # Load data and random_forest model only once
 data1, data2,data3, data, product_data, product_subcategory_data, geography_data, channel_data = load_data()
-model_rf, model_lr, new_data = load_model()
+model_gr, model_lr, new_data = load_model()
 
 # model_rf = LinearRegression().fit(x_train, y_train)
 
@@ -177,11 +177,11 @@ elif selected_page == 'Trang 16':
 
 elif selected_page == 'Trang 17':
     st.header('KIỂM TRA BỘ DỮ LIỆU',divider='rainbow')
-    predictValue(data=new_data, model_rf=model_rf, model_lr = model_lr)
+    predictValue(data=new_data, model_gr=model_gr, model_lr = model_lr)
 
 elif selected_page == 'Trang 18':
     st.header('DEMO',divider='rainbow')
-    predictValue2(model_rf)
+    predictValue2(model_gr)
 
 
 
