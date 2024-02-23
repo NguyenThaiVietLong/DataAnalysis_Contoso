@@ -12,15 +12,23 @@ st.set_page_config(layout="wide")
 
 @st.cache_data
 def load_data():
-    data1 = pd.read_excel('data/2008 Contoso Data.xlsx')
-    data2 = pd.read_excel('data/2009 Contoso Data.xlsx')
-    data3 = pd.read_excel('data/Contoso Lookup Tables.xlsx', sheet_name=None)
+    # data1 = pd.read_excel('data/2008 Contoso Data.xlsx')
+    # data2 = pd.read_excel('data/2009 Contoso Data.xlsx')
+    data1 = pd.read_json("data/jsonl/2008_Contoso_Data.jsonl", lines=True)
+    data2 = pd.read_json("data/jsonl/2009_Contoso_Data.jsonl", lines=True)
     data = pd.concat([data1, data2], ignore_index=True)
 
-    product_data = pd.read_excel('data/Contoso Lookup Tables.xlsx', sheet_name='DIM Product')
-    product_subcategory_data = pd.read_excel('data/Contoso Lookup Tables.xlsx', sheet_name='DIM Product Sub Category')
-    geography_data = pd.read_excel('data/Contoso Lookup Tables.xlsx', sheet_name='DIM Geography')
-    channel_data =  pd.read_excel('data/Contoso Lookup Tables.xlsx', sheet_name='DIM Channel')
+    data3 = pd.read_excel('data/Contoso Lookup Tables.xlsx', sheet_name=None)
+    # data = pd.concat([data1, data2], ignore_index=True)
+
+    product_data = pd.read_json("data/jsonl/DIM_product.jsonl", lines=True)
+    # product_data = pd.read_excel('data/Contoso Lookup Tables.xlsx', sheet_name='DIM Product')
+    # product_subcategory_data = pd.read_excel('data/Contoso Lookup Tables.xlsx', sheet_name='DIM Product Sub Category')
+    product_subcategory_data = pd.read_json("data/jsonl/DIM_product_subcategory_data.jsonl", lines=True)
+    # geography_data = pd.read_excel('data/Contoso Lookup Tables.xlsx', sheet_name='DIM Geography')
+    geography_data = pd.read_json("data/jsonl/DIM_geography_data.jsonl", lines=True)
+    # channel_data =  pd.read_excel('data/Contoso Lookup Tables.xlsx', sheet_name='DIM Channel')
+    channel_data =  pd.read_json("data/jsonl/DIM_channel_data.jsonl", lines=True)
     return data1,data2, data3, data, product_data, product_subcategory_data, geography_data, channel_data
 
 @st.cache_data
