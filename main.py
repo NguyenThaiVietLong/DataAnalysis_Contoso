@@ -37,8 +37,9 @@ def load_model():
     x = new_data.drop('SalesAmount',axis = 1)
     y = new_data['SalesAmount']
     x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.2, random_state=42) 
-    model_rf = RandomForestRegressor().fit(x_train, y_train)
+    # model_rf = RandomForestRegressor().fit(x_train, y_train)
     model_lr = LinearRegression().fit(x_train, y_train)
+    model_rf = LinearRegression().fit(x_train, y_train)
     return model_rf, model_lr, new_data
 # Load data and random_forest model only once
 data1, data2,data3, data, product_data, product_subcategory_data, geography_data, channel_data = load_data()
