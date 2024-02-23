@@ -177,7 +177,7 @@ elif selected_page == 'Trang 16':
 
 elif selected_page == 'Trang 17':
     st.header('KIỂM TRA BỘ DỮ LIỆU',divider='rainbow')
-    predictValue(data=new_data, model_gr=model_gr, model_lr = model_lr)
+    predictValue(data=new_data, model_gr = model_gr, model_lr = model_lr)
 
 elif selected_page == 'Trang 18':
     st.header('DEMO',divider='rainbow')

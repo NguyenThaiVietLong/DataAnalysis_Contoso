@@ -92,7 +92,7 @@ def machineLearning(data):
     # Display the DataFrame as a table in Streamlit
     st.table(new_df)
 
-def predictValue(data, model_rf, model_lr):
+def predictValue(data, model_gr, model_lr):
     x = data.drop('SalesAmount',axis = 1)
     y = data['SalesAmount']
     index = st.number_input('Nhập index vào đây',value=None,placeholder='Nhập vị trí muốn dự đoán vào đây')
@@ -105,7 +105,7 @@ def predictValue(data, model_rf, model_lr):
         # inputs = np.array([48.92,95.95,9,0,0,1,0,1876.68]).reshape(1, -1)
         inputs = x.iloc[index].to_numpy().reshape(1, -1)
         outputs_lr = model_lr.predict(inputs)
-        outputs_rf = model_rf.predict(inputs)
+        outputs_rf = model_gr.predict(inputs)
 
         st.write(f"Giá trị Linear Regression dự đoán: {outputs_lr[0]}")
         st.write(f"Giá trị Random Forest dự đoán: {outputs_rf[0]}")
@@ -119,7 +119,7 @@ def predictValue(data, model_rf, model_lr):
         # inputs = np.array([48.92,95.95,9,0,0,1,0,1876.68]).reshape(1, -1)
         inputs = x.iloc[index].to_numpy().reshape(1, -1)
         outputs_lr = model_lr.predict(inputs)
-        outputs_rf = model_rf.predict(inputs)
+        outputs_rf = model_gr.predict(inputs)
 
         st.write(f"Giá trị Linear Regression dự đoán: {outputs_lr[0]}")
         st.write(f"Giá trị Random Forest dự đoán: {outputs_rf[0]}")
