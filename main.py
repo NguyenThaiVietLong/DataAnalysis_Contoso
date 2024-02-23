@@ -18,7 +18,7 @@ def load_data():
     data2 = pd.read_json("data/jsonl/2009_Contoso_Data.jsonl", lines=True)
     data = pd.concat([data1, data2], ignore_index=True)
 
-    data3 = pd.read_excel('data/Contoso Lookup Tables.xlsx', sheet_name=None)
+    data3 = pd.read_excel('data/Contoso_Lookup_Tables.xlsx', sheet_name=None)
     # data = pd.concat([data1, data2], ignore_index=True)
 
     product_data = pd.read_json("data/jsonl/DIM_product.jsonl", lines=True)
